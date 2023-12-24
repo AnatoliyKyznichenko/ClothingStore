@@ -1,0 +1,120 @@
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+    }
+
+    header {
+        background-color: #333;
+        padding: 10px;
+        text-align: center;
+        color: white;
+    }
+
+    nav {
+        display: flex;
+        justify-content: space-around;
+        background-color: #666;
+        padding: 10px;
+    }
+
+    nav a {
+        text-decoration: none;
+        color: white;
+        padding: 10px;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+
+    nav a:hover {
+        background-color: #444;
+    }
+
+    main {
+        padding: 20px;
+    }
+
+    .product-list {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        max-width: 200px;
+    }
+
+
+    .product {
+        flex-basis: 100%;
+        width: 1200px;
+        border: 1px solid #ddd;
+        padding: 10px;
+        margin: 10px;
+        border-radius: 5px;
+        background-color: white;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .product h3 {
+        margin-top: 0;
+    }
+
+    .product p {
+        margin-bottom: 10px;
+    }
+
+    .category-button {
+        flex-basis: 100%;
+        display: block;
+        width: 100%;
+        background-color: #8B4513; /* коричневый цвет */
+        color: #ffffff;
+        padding: 15px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+
+    .category-button:hover {
+        background-color: #8B4513; /* измененный цвет при наведении */
+    }
+</style>
+<style>
+    .product {
+        flex: 1 1 calc(100% - 20px); /* 100% ширины минус отступы */
+        box-sizing: border-box; /* чтобы отступы не увеличивали ширину элемента */
+        /* остальные стили */
+    }
+
+    .category-button {
+        flex: 1 1 calc(100% - 20px); /* 100% ширины минус отступы */
+        box-sizing: border-box; /* чтобы отступы не увеличивали ширину элемента */
+        /* остальные стили */
+    }
+</style>
+
+/* добавления в корзину */
+.add-to-cart-button {
+    background-color: #4CAF50; /* Зеленый цвет */
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.add-to-cart-button:hover {
+    background-color: #8B4513; /* Коричневый цвет при наведении */
+}
+
+.product img {
+    width: 30%; /* Устанавливает ширину изображения на 100% от родительского блока */
+    height: auto; /* Автоматически рассчитывает высоту, чтобы сохранить пропорции */
+    max-height: 500px; /* Максимальная высота изображения, чтобы не занимало много места */
+    object-fit: cover; /* Заполнение изображения, чтобы сохранить пропорции и уместить в заданный размер */
+}
+
+

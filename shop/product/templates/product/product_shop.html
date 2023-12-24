@@ -1,0 +1,52 @@
+<!-- Ваш файл category_view.html в директории templates/product/ -->
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ category.name }}</title>
+    <link href="{% static 'vendor/css/category_product.css' %}" rel="stylesheet">
+    <!-- Добавьте необходимые стили или ссылки на стили по вашему усмотрению -->
+</head>
+<body>
+
+    <header>
+        <h1>Мой магазин</h1>
+    </header>
+
+        <nav>
+            <a href="/cabinet/">Кабинет</a>
+            <a href="/cccc/">Бонусы</a>
+            <a href="{% url 'cart:get_user_cart' %}">Корзина</a>
+            <a href="{% url 'product:products_many' %}">Продукты</a>
+        </nav>
+
+    <main>
+        <h2>Список товаров</h2>
+
+        <div class="product-list">
+            <!-- Здесь вставьте цикл для товаров -->
+            {% for product in products %}
+            <div class="product">
+                <a href="#">
+                    <img class="card-img-top"
+                         src="{{ product.img.url }}"
+                         alt="">
+                </a>
+                <h3>{{ product.name }}</h3>
+                <p>Цена: {{ product.price }} рублей</p>
+                <p>Описание: {{ product.description }}</p>
+                <!--<button class="add-to-cart-button">Добавить в корзину</button>-->
+                <a href="/cart/add_to_cart/{{product.id }}" class="btn btn-outline-success">Добавити в корзину</a>
+                <!-- Добавьте другие поля товара, если нужно -->
+            </div>
+            <!-- Повторите блок для каждого товара -->
+            {% endfor %}
+            <!-- Конец цикла для товаров -->
+        </div>
+    </main>
+
+</body>
+</html>
+

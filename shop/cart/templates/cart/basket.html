@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="{% static 'css/cart.css' %}">
+    <script src="{% static 'js/cart.js' %}"></script>
+</head>
+<body>
+
+    <header>
+        <h1>Shopping Cart</h1>
+    </header>
+
+    <main>
+        <div class="cart">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Total</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Здесь будет цикл для элементов корзины -->
+                    {% for product_info in cart_info %}
+                    <tr>
+                        <td>{{ product_info.name }}</td>
+                        <td class="price">{{ product_info.price }} $</td>
+                        <td>
+                            <input type="number" class="quantity-input" value="1" min="1" data-product-id="{{ product_info.id }}">
+                        </td>
+                        <td class="total-price">{{ product_info.get_total_price }}$</td>
+                        <td>
+                            <button class="remove-button">Remove</button>
+                        </td>
+                    </tr>
+                    <!-- Повторите этот блок для каждого продукта в корзине -->
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            <div class="cart-total">
+                <p>Total: <span id="cart-total">{{ cart_info.get_total_price }}$</span></p>
+                <button class="checkout-button">Checkout</button>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список товаров</title>
+    <link href="{% static 'vendor/css/category_product.css' %}" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <h1>Мой магазин</h1>
+    </header>
+
+    <nav>
+        <a href="/cabinet/">Кабинет</a>
+        <a href="{% url 'cart:get_user_cart' %}">Корзина</a>
+        <a href="/products/">Продукты</a>
+    </nav>
+
+    <main>
+        <h2>Список Категорий товаров</h2>
+        <div class="product-list">
+            <!-- Здесь вставьте цикл для категорий -->
+            {% for category in categories %}
+            <div class="category">
+                 <a href="{% url 'product:products_shop' category_name=category.name %}" class="category-button">
+                    {{ category.name }}
+            <!-- Добавьте другие поля категории, если нужно -->
+                </a>
+            </div>
+            <!-- Повторите блок для каждой категории -->
+            {% endfor %}
+            <!-- Конец цикла для категорий -->
+        </div>
+    </main>
+
+</body>
+</html>
